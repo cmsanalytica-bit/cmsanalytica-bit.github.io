@@ -34,6 +34,27 @@ function initDiagnosticForm(formId) {
   });
 }
 
+function initMobileMenu() {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("nav.main-nav");
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", function () {
+    const isOpen = nav.classList.toggle("open");
+    toggle.classList.toggle("is-active", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  nav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      nav.classList.remove("open");
+      toggle.classList.remove("is-active");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   initDiagnosticForm("diagnostic-form");
+  initMobileMenu();
 });
