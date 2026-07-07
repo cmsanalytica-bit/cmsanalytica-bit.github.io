@@ -172,21 +172,32 @@ nav.main-nav a:hover { color: var(--azul-principal); }
 
 /* Hero */
 .hero {
+  position: relative;
+  overflow: hidden;
   padding: 96px 0 64px;
   color: var(--branco);
-  background: linear-gradient(160deg, #1B1240 0%, var(--azul-principal) 45%, var(--azul-secundario) 75%, #1B1240 100%);
-  background-size: 300% 300%;
-  animation: heroGradient 14s ease infinite;
+  background: #1B1240;
 }
 
-@keyframes heroGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background: linear-gradient(160deg, #1B1240 0%, var(--azul-principal) 45%, var(--azul-secundario) 75%, #1B1240 100%);
+  animation: heroGradientMove 12s ease-in-out infinite;
+  z-index: 0;
+  will-change: transform;
 }
+
+@keyframes heroGradientMove {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(-8%, -6%, 0) rotate(4deg); }
+}
+
+.hero .container { position: relative; z-index: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero { animation: none; }
+  .hero::before { animation: none; }
 }
 
 .hero h1, .hero p { color: var(--branco); }
