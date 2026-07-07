@@ -388,6 +388,8 @@ footer .footer-bottom {
 /* Responsive */
 @media (max-width: 720px) {
   nav.main-nav { display: none; }
+  .btn-header { display: none; }
+  .brand { word-spacing: -0.1em; }
   section { padding: 64px 0; }
   .tier-card.featured { transform: none; }
 }
