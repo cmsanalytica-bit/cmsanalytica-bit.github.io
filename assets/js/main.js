@@ -14,6 +14,7 @@ function initDiagnosticForm(formId) {
 
     const nome = form.querySelector("[name=nome]")?.value.trim() || "";
     const segmento = form.querySelector("[name=segmento]")?.value.trim() || "";
+    const especialidade = form.querySelector("[name=especialidade]")?.value.trim() || "";
     const cidade = form.querySelector("[name=cidade]")?.value.trim() || "";
     const desafio = form.querySelector("[name=desafio]")?.value.trim() || "";
     const origem = form.dataset.origem || "site-institucional";
@@ -22,6 +23,7 @@ function initDiagnosticForm(formId) {
       "Olá! Vim pelo site da CMS Analytica e quero o diagnóstico gratuito.",
       nome && `Nome: ${nome}`,
       segmento && `Negócio/segmento: ${segmento}`,
+      especialidade && `Especialidade: ${especialidade}`,
       cidade && `Cidade: ${cidade}`,
       desafio && `Principal desafio: ${desafio}`,
       `Origem: ${origem}`,

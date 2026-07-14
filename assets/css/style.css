@@ -227,12 +227,16 @@ nav.main-nav a:hover { color: var(--azul-principal); }
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
+  box-sizing: border-box;
   background: rgba(253,253,253,0.12);
   border: 1px solid rgba(253,253,253,0.25);
   padding: 8px 16px;
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 600;
+  line-height: 1.4;
+  white-space: normal;
   margin-bottom: 24px;
 }
 
@@ -524,6 +528,64 @@ footer .footer-bottom {
   margin-bottom: 16px;
 }
 
+/* Timeline de metodologia (landing pages de nicho com processo em fases) */
+.timeline-metodologia {
+  margin-top: 48px;
+  max-width: 800px;
+}
+
+.timeline-fase {
+  position: relative;
+  padding-left: 40px;
+  padding-bottom: 48px;
+  border-left: 2px solid rgba(63,45,242,0.18);
+}
+
+.timeline-fase:last-of-type {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+.timeline-fase::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--azul-principal), var(--azul-secundario));
+  box-shadow: 0 0 0 4px rgba(63,45,242,0.14);
+}
+
+.timeline-fase-meses {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azul-principal);
+  background: rgba(63,45,242,0.08);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.timeline-fase h3 { margin-bottom: 12px; }
+.timeline-fase p:last-child { margin-bottom: 0; }
+
+/* Callout de destaque escuro (usado para posicionamento ético/regras do nicho) */
+.dark-callout {
+  margin-top: 40px;
+  background: var(--preto);
+  color: var(--branco);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+}
+
+.dark-callout h3 { color: var(--branco); }
+.dark-callout p { color: rgba(253,253,253,0.82); margin: 0; }
+
 /* Responsive */
 @media (max-width: 720px) {
   .btn-header { display: none; }
@@ -556,4 +618,6 @@ footer .footer-bottom {
   nav.main-nav a:first-child { border-top: none; }
 
   .tiers-grid { grid-template-columns: 1fr !important; }
+  .timeline-fase { padding-left: 26px; padding-bottom: 40px; }
+  .dark-callout { padding: 28px 24px; }
 }
